@@ -1,0 +1,16 @@
+[build]
+  command = "cd frontend && npm install && npm run build"
+  publish = "frontend/dist"
+  functions = "netlify/functions"
+
+[dev]
+  # Optional local dev command for Netlify CLI
+  command = "cd frontend && npm run dev"
+  port = 8888
+  functions = "netlify/functions"
+
+# Optional redirects for API endpoints
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
